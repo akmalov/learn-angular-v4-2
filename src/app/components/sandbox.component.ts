@@ -2,32 +2,19 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'sandbox',
-    template: `
-        <h1>{{ name }} is {{ age }} years old.</h1>
-        <h2>My name is {{ person.firstname }} {{ person.lastname }}</h2>
-        <ul>
-            <li>{{ 'Hello World' }}</li>
-            <li>{{ 1+1 }}</li>
-            <li>{{ showAge() }}</li>
-        </ul>
-    `
+    template: `<h1>Hello {{ name }}</h1> `
 })
 
 export class SandboxComponent{
-    name = 'John Doe';
-    age = 35;
-    person = {firstname: 'Steve', lastname: 'Smith'}
-
-    constructor(){
-        console.log('Constructor ran...');
-        this.hasBirthday();
-    }
-
-    hasBirthday(){
-        this.age += 1;
-    }
-
-    showAge(){
-        return this.age;
-    }
+    name:string = 'John Doe';
+    age:number = 35;
+    hasChildren:boolean = true;
+    city:any = 'Boston';
+    myNumbersArray:number[] = [1,2,3];
+    myStringsArray:string[] = ['hello', 'world'];
+    myAnyArray:any[] = [1,2,'hello'];
+    myTuple: [string, number] = ['hello', 3];
+    unusable: void = undefined;
+    u: undefined = undefined;
+    n: null = null;
 }
