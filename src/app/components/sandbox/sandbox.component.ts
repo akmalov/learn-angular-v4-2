@@ -4,28 +4,19 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>Hello World</h1>
-        <button (click)="fireEvent($event)">Click Event</button>
-        <br>
-        <button (mouseover)="fireEvent($event)">Mouseover Event</button>
-        <br>
-        <button (mousedown)="fireEvent($event)">Mousedown Event</button>
-        <br>
-        <button (mouseup)="fireEvent($event)">Mouseup Event</button>
-        <br>
-        <button (dblclick)="fireEvent($event)">Double click Event</button>
-        <br>
-        <button (drag)="fireEvent($event)">Drag Event</button>
-        <br>
-        <button (drag)="fireEvent($event)">Drag Event</button>
-        <br>
-        <button (dragover)="fireEvent($event)">Drag over Event</button>
+        <button (click)="changeValue()">Change value</button>
+        <div *ngIf="value">
+            <h1>{{ text }}</h1>
+        </div>
     `
 })
 
 export class SandboxComponent{
-    fireEvent(e){
-        //console.log('Button Clicked');
-        //console.log('greeting');
-        console.log(e.type);
+    text:string = 'Hello world';
+    value:boolean = true;
+
+    changeValue(){
+        //this.value = false;
+        this.value = !this.value;
     }
 }
