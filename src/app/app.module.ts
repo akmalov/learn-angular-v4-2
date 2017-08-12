@@ -6,12 +6,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import { DataService } from './services/data.service';
 import {Data} from "@angular/router";
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     QuestionListComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule
