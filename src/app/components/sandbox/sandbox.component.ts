@@ -4,17 +4,28 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>Hello World</h1>
-        <p>My birthday is {{ birthday | date }}</p>
-        <p>My birthday is {{ birthday | date:"MM-dd-yyyy" }}</p>
-        <p>I wast born in {{ birthday | date:"yyyy" }}</p>
-        <p>I love {{ 'cake' | uppercase }}</p>
-        <p>Your total is {{ total | currency:"GBP":"1" }}</p>
-        <p>Our fee is {{ fee | percent }}</p>
+        <button (click)="fireEvent($event)">Click Event</button>
+        <br>
+        <button (mouseover)="fireEvent($event)">Mouseover Event</button>
+        <br>
+        <button (mousedown)="fireEvent($event)">Mousedown Event</button>
+        <br>
+        <button (mouseup)="fireEvent($event)">Mouseup Event</button>
+        <br>
+        <button (dblclick)="fireEvent($event)">Double click Event</button>
+        <br>
+        <button (drag)="fireEvent($event)">Drag Event</button>
+        <br>
+        <button (drag)="fireEvent($event)">Drag Event</button>
+        <br>
+        <button (dragover)="fireEvent($event)">Drag over Event</button>
     `
 })
 
 export class SandboxComponent{
-    birthday = new Date(1981, 1, 15);
-    total = 500;
-    fee = 0.5;
+    fireEvent(e){
+        //console.log('Button Clicked');
+        //console.log('greeting');
+        console.log(e.type);
+    }
 }
