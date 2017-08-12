@@ -4,35 +4,25 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>Hello World</h1>
-        <h4 [class.special]="isSpecial">This class binding is special</h4>
-        <h4 [ngClass]="currentClasses">This div is initially special and saveable</h4>
-    `,
-    styles:[
-        `
-            .special{
-                color:green;
-            }
-            
-            .saveable{
-                text-transform:uppercase;
-            }
-        `
-    ]
+        <div [style.font-size]="isSpecial ? 'x-large' : 'smaller'">Font size depends on isSpecial</div>
+        
+        <div [ngStyle]="currentStyles">This div is initially saveable & special</div>
+    `
 })
 
 export class SandboxComponent{
-    isSpecial = false;
+    isSpecial = true;
     canSave = true;
-    currentClasses = {};
+    currentStyles = {};
 
     constructor(){
-        this.setCurrentClasses();
+        this.setCurrentStyles();
     }
 
-    setCurrentClasses(){
-        this.currentClasses = {
-            saveable:this.canSave,
-            special:this.isSpecial
+    setCurrentStyles(){
+        this.currentStyles = {
+            'font-style': this.canSave ? 'italic' : 'normal',
+            'font-size': this.isSpecial ? '24px' : '12px'
         }
     }
 }
